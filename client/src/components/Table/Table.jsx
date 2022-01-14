@@ -4,6 +4,8 @@ import { getClaims } from "../../api/claims.js";
 import Modal from "../Modal";
 import styles from "./table.module.scss";
 import Loading from "../Loading";
+import { BiDownvote as Down } from "react-icons/bi";
+import { BiUpvote as Up } from "react-icons/bi";
 
 const Table = () => {
   const [showModal, setShowModal] = useState(false);
@@ -88,11 +90,60 @@ const Table = () => {
           })}
         </div>
       </div>
+      <MobileCard data={data} setShowModal={setShowModal} />
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
         clickedId={clickedId}
       />
+    </div>
+  );
+};
+
+const MobileCard = ({ data, setShowModal }) => {
+  return (
+    <div className={styles.cardWrapper}>
+      {data.map((field, i) => {
+        return (
+          <div className={styles.card} key={i}>
+            <div className={styles.row}>
+              <div className={styles.header}>
+                <span className={styles.rank}>
+                  {field.weeklyRank > 50 ? (
+                    <Up style={{ color: "green" }} />
+                  ) : (
+                    <Down style={{ color: "red" }} />
+                  )}
+                  Level {field.weeklyRank}
+                </span>
+                <p className={styles.title}>Some Activity</p>
+              </div>
+              <div>
+                <span className={styles.title}>
+                  {field.rewardTokenEarned} {field.rewardToken}
+                </span>
+                {"  "}
+                <span>${field.usdTotal.toLocaleString("en-US")}</span>
+              </div>
+            </div>
+            <div className={styles.row}>
+              <div>
+                {field.unclaimedAmount} / {field.totalClaimed} claimed
+              </div>
+              <div>
+                <button
+                  className={styles.claimButton}
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                >
+                  Claim
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

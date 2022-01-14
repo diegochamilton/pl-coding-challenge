@@ -14,7 +14,9 @@
   border: 1px solid #6822b4;
   border-radius: 10px;
   padding: $l-space $l-space;
-  min-width: 1200px;
+  // min-width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   font-size: 14px;
 }
 
@@ -28,6 +30,7 @@
     background-color: #39126c;
     margin-bottom: 10px;
     font-weight: 600;
+    font-size: 12px;
   }
 
   &.body {
@@ -37,6 +40,7 @@
 
 .field-wrapper {
   padding: $m-space 0;
+  align-self: center;
 }
 
 .field-content {
@@ -46,10 +50,10 @@
 
 .table-body {
   max-height: 170px;
-  overflow: scroll;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow: scroll;
 }
 
 .button-field {
@@ -68,3 +72,81 @@
   font-weight: 600;
   line-height: 1;
 }
+
+.card-wrapper {
+  display: none;
+}
+
+.card {
+  background-color: #0c0326;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid #6822b4;
+  display: grid;
+  gap: $m-space;
+  font-size: 14px;
+  color: #ececebe3;
+}
+
+.title {
+  font-size: 16px;
+  color: #fffffd;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $xs-space;
+}
+
+.rank {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  gap: $s-space;
+}
+
+.claimed-wrapper {
+  display: flex;
+  gap: $s-space;
+}
+
+.claimed-ammount {
+  display: flex;
+  flex-direction: column;
+  padding: $s-space;
+}
+
+@media screen and (max-width: $bp-tablet) {
+  .field-content {
+    padding: 0 $xs-space;
+    border-right: none;
+  }
+
+  .claim-button {
+    padding: 6px 12px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    height: auto;
+  }
+
+  .card-wrapper {
+    display: grid;
+    width: 100%;
+    max-width: 800px;
+    gap: $l-space;
+  }
+
+  .table-container {
+    display: none;
+  }
+} ;
