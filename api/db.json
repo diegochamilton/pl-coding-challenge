@@ -1,59 +1,83 @@
 {
-    "claims": [
-        {
-            "claimId": 1,
-            "rewardToken": "XYZ",
-            "unclaimedAmount": 432,
-            "totalClaimed": 8387,
-            "rewardTokenEarned": 12,
-            "usdTotal": 838,
-            "weeklyRank": 3
-        },
-        {
-            "claimId": 2,
-            "rewardToken": "XYZ",
-            "unclaimedAmount": 12,
-            "totalClaimed": 32,
-            "rewardTokenEarned": 1,
-            "usdTotal": 43,
-            "weeklyRank": 99
-        },
-        {
-            "claimId": 3,
-            "rewardToken": "XYZ",
-            "unclaimedAmount": 1234,
-            "totalClaimed": 98794,
-            "rewardTokenEarned": 332,
-            "usdTotal": 1009,
-            "weeklyRank": 1
-        },
-        {
-            "claimId": 4,
-            "rewardToken": "ABC",
-            "unclaimedAmount": 543,
-            "totalClaimed": 5444,
-            "rewardTokenEarned": 344,
-            "usdTotal": 76,
-            "weeklyRank": 804
-        },
-        {
-            "claimId": 5,
-            "rewardToken": "ABC",
-            "unclaimedAmount": 5,
-            "totalClaimed": 22,
-            "rewardTokenEarned": 74,
-            "usdTotal": 364,
-            "weeklyRank": 64
-        },
-        {
-            "claimId": 6,
-            "rewardToken": "XYZ",
-            "unclaimedAmount": 34,
-            "totalClaimed": 8566,
-            "rewardTokenEarned": 4,
-            "usdTotal": 7547,
-            "weeklyRank": 2384
-        }
-    ],
-    "submitClaim": []
+  "claims": [
+    {
+      "claimId": 1,
+      "rewardToken": "XYZ",
+      "unclaimedAmount": 432,
+      "totalClaimed": 8387,
+      "rewardTokenEarned": 12,
+      "usdTotal": 838,
+      "weeklyRank": 3
+    },
+    {
+      "claimId": 2,
+      "rewardToken": "XYZ",
+      "unclaimedAmount": 12,
+      "totalClaimed": 32,
+      "rewardTokenEarned": 1,
+      "usdTotal": 43,
+      "weeklyRank": 99
+    },
+    {
+      "claimId": 3,
+      "rewardToken": "XYZ",
+      "unclaimedAmount": 1234,
+      "totalClaimed": 98794,
+      "rewardTokenEarned": 332,
+      "usdTotal": 1009,
+      "weeklyRank": 1
+    },
+    {
+      "claimId": 4,
+      "rewardToken": "ABC",
+      "unclaimedAmount": 543,
+      "totalClaimed": 5444,
+      "rewardTokenEarned": 344,
+      "usdTotal": 76,
+      "weeklyRank": 804
+    },
+    {
+      "claimId": 5,
+      "rewardToken": "ABC",
+      "unclaimedAmount": 5,
+      "totalClaimed": 22,
+      "rewardTokenEarned": 74,
+      "usdTotal": 364,
+      "weeklyRank": 64
+    },
+    {
+      "claimId": 6,
+      "rewardToken": "XYZ",
+      "unclaimedAmount": 34,
+      "totalClaimed": 8566,
+      "rewardTokenEarned": 4,
+      "usdTotal": 7547,
+      "weeklyRank": 2384
+    }
+  ],
+  "submitClaim": [
+    {
+      "id": 1
+    },
+    {
+      "claimId": 1,
+      "address": "0x86454629C6e6ea9625Be70Cb262E4D947552be4a",
+      "id": 2
+    },
+    {
+      "claimId": 1,
+      "address": "0x86454629C6e6ea9625Be70Cb262E4D947552be4a",
+      "id": 3
+    },
+    {
+      "claimId": 1,
+      "address": "0x86454629C6e6ea9625Be70Cb262E4D947552be4a",
+      "id": 4
+    },
+    {
+      "claimId": 1,
+      "address": "0x86454629C6e6ea9625Be70Cb262E4D947552be4a",
+      "id": 5
+    }
+  ]
 }

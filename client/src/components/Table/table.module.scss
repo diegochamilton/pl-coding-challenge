@@ -1,0 +1,70 @@
+@import "../../styles/variables.scss";
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $l-space $l-space;
+}
+
+.table-container {
+  background-color: #0d0325;
+  border: 1px solid #6822b4;
+  border-radius: 10px;
+  padding: $l-space $l-space;
+  min-width: 1200px;
+  font-size: 14px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 19% 13.5% 13.5% 13.5% 13.5% 13.5% 13.5%;
+  text-align: center;
+  border-radius: 10px;
+
+  &.head {
+    background-color: #39126c;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  &.body {
+    background-color: #240949;
+  }
+}
+
+.field-wrapper {
+  padding: $m-space 0;
+}
+
+.field-content {
+  padding: 0 $m-space;
+  border-right: 1px solid #4d287a;
+}
+
+.table-body {
+  max-height: 170px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: $s-space;
+}
+
+.claim-button {
+  border-radius: 50px;
+  padding: 6px 24px;
+  background-color: #57b892;
+  border: none;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+}

@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import "./styles/app.scss"; // Load app styles
+import "./api/axios"; // Configure Axios
 
-if (module.hot) {
-  module.hot.accept();
-}
+ReactDOM.render(<App />, document.getElementById("root"));

@@ -1,0 +1,66 @@
+@import "../../../styles/variables.scss";
+
+.wrapper {
+  padding-top: 50px;
+  display: grid;
+  justify-items: center;
+  gap: 50px;
+}
+
+.icon {
+  font-size: 160px;
+  color: #e9983d;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $m-space;
+
+  label {
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  input {
+    width: 340px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #240a49;
+    background-color: #140a2f;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  button {
+    &.claim {
+      background-color: #6822b2;
+    }
+
+    &.back {
+      background-color: #280f7f;
+    }
+
+    border: none;
+    width: 240px;
+    height: 48px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-style: italic;
+  }
+}
+
+.error {
+  color: red;
+}

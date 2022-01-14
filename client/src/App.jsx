@@ -1,7 +1,12 @@
 import React from "react";
+import Table from "./components/Table";
 
 const App = () => {
-  return <div>Playground</div>;
+  return (
+    <>
+      <Table />
+    </>
+  );
 };
 
 export default App;

@@ -1,72 +1,85 @@
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WebpackBundleAnalyzer =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const path = require("path");
 
-const devMode = process.env.NODE_ENV !== "production";
-const SRC_DIR = __dirname + "/src";
-const PUBLIC_DIR = __dirname + "/public";
-const DIST_DIR = __dirname + "/dist";
+const environment = process.env.NODE_ENV;
+const isProduction = environment === "production";
+
+const ENTRY = path.join(__dirname, "./src/index.jsx");
+const OUTPUT = path.join(__dirname, "public");
+const FILES_DIRECTORY = "./public";
 
 module.exports = {
-  entry: [SRC_DIR + "/index.jsx"],
+  entry: ENTRY,
   output: {
-    path: DIST_DIR,
-    publicPath: "/",
     filename: "bundle.js",
+    path: OUTPUT,
+    publicPath: "/",
+  },
+  mode: environment,
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: FILES_DIRECTORY,
+    historyApiFallback: true,
+    stats: {
+      colors: true,
+      errorDetails: true,
+    },
+  },
+  optimization: {
+    concatenateModules: false,
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        use: "babel-loader",
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
       },
       {
-        test: /\.(scss|sass|css)$/,
-        exclude: /node_modules/,
-        loaders: [
-          MiniCssExtractPlugin.loader,
+        test: /\.s?css$/,
+        oneOf: [
           {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              sourceMap: true,
-              importLoaders: 1,
-              localIdentName: "[local]___[hash:base64:5]",
-            },
+            test: /\.module\.s?css$/,
+            use: [
+              "style-loader",
+              {
+                loader: "css-loader",
+                options: {
+                  modules: {
+                    mode: "local",
+                    exportLocalsConvention: "camelCase",
+                    localIdentName: isProduction
+                      ? "[hash:base64]"
+                      : "[local]--[hash:base64:5]",
+                  },
+                  importLoaders: 1,
+                },
+              },
+              "sass-loader",
+            ],
           },
-          "sass-loader",
+          {
+            use: ["style-loader", "css-loader", "sass-loader"],
+          },
         ],
       },
       {
-        test: /\.(html)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "html-loader",
-          options: { minimize: true },
-        },
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: [".js", ".jsx"],
+    enforceExtension: false,
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: PUBLIC_DIR + "/index.html",
-      filename: "./index.html",
+    new webpack.DefinePlugin({
+      NODE_ENV: JSON.stringify(environment),
     }),
-    new MiniCssExtractPlugin({
-      filename: devMode ? "[name].css" : "[name].[hash].css",
-      chunkFilename: devMode ? "[id].css" : "[id].[hash].css",
-    }),
+    // new WebpackBundleAnalyzer(),
   ],
-  devServer: {
-    contentBase: DIST_DIR,
-    hot: true,
-    port: 9000,
-  },
 };
