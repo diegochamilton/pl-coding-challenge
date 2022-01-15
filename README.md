@@ -36,7 +36,7 @@ I built a custom hook to complement this called useApi, it would give me the loa
 
 There's a slight difference on the main table. The content is aligned to the center instead of right. I tried both styles but prefered the content centered.
 
-# Eroor Handling
+# Error Handling
 
 When checking if the ethereum address is valid, the function will wait for the response on the ethereum network and display the error if the call fails.
 
