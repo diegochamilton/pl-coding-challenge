@@ -13,7 +13,6 @@ export default (defaultData, initialLoading) => {
       setData(response);
     } catch (error) {
       setError(error.response?.data);
-      callback(error);
     } finally {
       setIsLoading(false);
     }
