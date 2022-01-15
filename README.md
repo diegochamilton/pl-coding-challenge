@@ -4,7 +4,7 @@ To run the client, install the packages in the client directory and run:
 
 `npm start`
 
-which will start the api on localhost:8080
+which will start the react app on localhost:8080
 
 # API
 

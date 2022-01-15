@@ -78,6 +78,11 @@
       "claimId": 1,
       "address": "0x86454629C6e6ea9625Be70Cb262E4D947552be4a",
       "id": 5
+    },
+    {
+      "claimId": null,
+      "address": "0x86454629C6e6ea9625Be70Cb262E4D947552be4a",
+      "id": 6
     }
   ]
 }
