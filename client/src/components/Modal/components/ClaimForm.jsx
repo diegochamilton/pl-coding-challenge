@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { GrBitcoin } from "react-icons/gr";
 import { sendClaim } from "../../../api/claims.js";
 import useApi from "../../../hooks/useApi";
@@ -19,6 +20,7 @@ const ClaimForm = ({ setShowModal, clickedId }) => {
     }
     setShowModal(false);
   };
+
   return (
     <div className={styles.wrapper}>
       <GrBitcoin className={styles.icon} />
@@ -47,6 +49,11 @@ const ClaimForm = ({ setShowModal, clickedId }) => {
       </div>
     </div>
   );
+};
+
+ClaimForm.propTypes = {
+  setShowModal: PropTypes.func.isRequired,
+  clickedId: PropTypes.number,
 };
 
 export default ClaimForm;
